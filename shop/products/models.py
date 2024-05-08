@@ -21,3 +21,18 @@ class General(models.Model):
     class Meta():
         verbose_name='Общие данные'
         verbose_name_plural='Общие данные'
+
+
+class Fridge(models.Model):
+    embedded = models.BooleanField(default=False, verbose_name='Встраиваемый')
+    number_of_doors = models.IntegerField(blank=True, verbose_name='Количество дверей')
+    height = models.FloatField(blank=True, verbose_name='Ширина')
+    width = models.FloatField(blank=True, verbose_name='Высота')
+    depth = models.FloatField(blank=True, verbose_name='Глубина')
+
+    def __str__(self):
+        return self.embedded
+    
+    class Meta():
+        verbose_name='Холодильник'
+        verbose_name_plural='Холодильники'
