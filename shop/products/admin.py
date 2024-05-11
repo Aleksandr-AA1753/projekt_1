@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import General
+
+from products.models import General
 from products.models import Fridge
 
 
