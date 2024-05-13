@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.urls import include, path
 
+from .settings import DEBUG
+
 
 
 urlpatterns = [
@@ -9,3 +11,8 @@ urlpatterns = [
     path('catalog/', include('goods.urls', namespace='catalog')),
     
 ]
+
+if DEBUG == True:
+    urlpatterns += [
+    path("__debug__/", include("debug_toolbar.urls")),
+    ]
