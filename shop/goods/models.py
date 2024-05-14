@@ -30,3 +30,11 @@ class Products(models.Model):
         db_table = 'product'
         verbose_name = "Продукт"
         verbose_name_plural = "Продукты"
+
+    def display_id(self):
+        return f'{self.id:05}'
+    
+    def sell_price(self):
+        if self.discount:
+            return round(self.price - self.price*self.discount/100, 2)
+        return self.price

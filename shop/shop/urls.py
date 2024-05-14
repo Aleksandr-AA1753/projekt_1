@@ -1,7 +1,8 @@
 from django.contrib import admin
+from django.conf.urls.static import static
 from django.urls import include, path
 
-from .settings import DEBUG
+from shop import settings
 
 
 
@@ -12,7 +13,8 @@ urlpatterns = [
     
 ]
 
-if DEBUG == True:
+if settings.DEBUG == True:
     urlpatterns += [
     path("__debug__/", include("debug_toolbar.urls")),
     ]
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
